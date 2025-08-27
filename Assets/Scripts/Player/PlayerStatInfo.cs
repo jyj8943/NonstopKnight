@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class PlayerStatInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public float maxHp;
+    [SerializeField] public float currentHp;
+    [SerializeField] public float maxMp;
+    [SerializeField] public float currentMp;
+    [SerializeField] public float maxExp;
+    [SerializeField] public float currentExp;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] public float attackPoint;
+    [SerializeField] public float walkSpeed;
+    
+    [SerializeField] public float currentLevel;
+    [SerializeField] public float currentGold;
+    
+    public void InitPlayerStats(PlayerSO playerSO)
     {
-        
+        this.maxHp = playerSO.baseMaxHp;
+        currentHp = maxHp;
+
+        maxMp = playerSO.baseMaxMp;
+        currentMp = maxMp;
+
+        maxExp = playerSO.baseMaxExp;
+        currentExp = 0;
+
+        attackPoint = playerSO.baseAttackPoint;
+        walkSpeed = playerSO.baseWalkSpeed;
+
+        currentLevel = playerSO.baseLevelValue;
+        currentGold = playerSO.baseGoldValue;
     }
 }
