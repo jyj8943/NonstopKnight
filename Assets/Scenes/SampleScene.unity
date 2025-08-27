@@ -908,6 +908,8 @@ MonoBehaviour:
   currentExp: 0
   attackPoint: 0
   walkSpeed: 0
+  currentLevel: 0
+  currentGold: 0
 --- !u!1 &1965944566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,5 +1037,5 @@ SceneRoots:
   - {fileID: 935772482}
   - {fileID: 1138440251}
   - {fileID: 1965944567}
-  - {fileID: 1576062974}
   - {fileID: 1546744203}
+  - {fileID: 1576062974}

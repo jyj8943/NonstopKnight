@@ -71,7 +71,8 @@ public class UIManager : MonoSingleton<UIManager>
 
         // 2. 인스턴스 생성
         GameObject go = Instantiate(prefab);
-
+        go.transform.SetParent(this.transform);
+        
         // 3. 컴포넌트 획득
         T ui = go.GetComponent<T>();
         if (ui == null)
