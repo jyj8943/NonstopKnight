@@ -187,6 +187,7 @@ MonoBehaviour:
   enemyList:
   - {fileID: 7412350740258175875, guid: a049a4d1711965b4b8d6cb5f29e9260a, type: 3}
   currentEnemyList: []
+  <stageData>k__BackingField: {fileID: 11400000, guid: 24bd6a9ad9e075f4cb19bacee64cce52, type: 2}
 --- !u!4 &363281566
 Transform:
   m_ObjectHideFlags: 0
@@ -954,6 +955,7 @@ MonoBehaviour:
   maxExp: 0
   currentExp: 0
   attackPoint: 0
+  attackdelay: 0
   walkSpeed: 0
   currentLevel: 0
   currentGold: 0

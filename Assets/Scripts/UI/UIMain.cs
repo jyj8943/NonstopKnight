@@ -14,6 +14,10 @@ public class UIMain : UIBase
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI goldText;
 
+    public TextMeshProUGUI stageText;
+    public TextMeshProUGUI waveText;
+    public Image waveBar;
+
     private void Update()
     {
         UpdatePlayerStatUI();
@@ -27,5 +31,9 @@ public class UIMain : UIBase
 
         levelText.text = GameManager.Instance.Player.StatInfo.currentLevel.ToString();
         goldText.text = GameManager.Instance.Player.StatInfo.currentGold.ToString();
+
+        stageText.text = StageManager.Instance.currentStageLevel.ToString() + " 스테이지";
+        waveText.text = "남아있는 몬스터 수: " + StageManager.Instance.currentEnemyList.Count;
+        waveBar.fillAmount = StageManager.Instance.GetPercentage();
     }
 }

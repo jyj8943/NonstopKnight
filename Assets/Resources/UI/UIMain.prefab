@@ -1970,6 +1970,9 @@ MonoBehaviour:
   expBar: {fileID: 8037050145246507034}
   levelText: {fileID: 5552735515617039484}
   goldText: {fileID: 2617848669456256215}
+  stageText: {fileID: 1573416255367732121}
+  waveText: {fileID: 7780275469451826036}
+  waveBar: {fileID: 7499258063441082529}
 --- !u!1 &7518863415368423212
 GameObject:
   m_ObjectHideFlags: 0
