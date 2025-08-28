@@ -22,6 +22,8 @@ public class BasicEnemy : MonoBehaviour
     private void OnDie()
     {
         StageManager.Instance.currentEnemyList.Remove(this.gameObject);
+        GameManager.Instance.Player.StatInfo.currentGold += StatInfo.dropGold;
+        GameManager.Instance.Player.StatInfo.currentExp += StatInfo.dropExp;
         Destroy(this.gameObject);
     }
 }

@@ -63,14 +63,15 @@ public class PlayerBaseState : IState
     {
         if (StageManager.Instance.currentEnemyList.Count <= 0) return;
         
-        var shortest = StageManager.Instance.currentEnemyList[0];
-        var shortestDist = (stateMachine.Player.transform.position - shortest.transform.position).sqrMagnitude;
+        GameObject shortest = null;
+        float shortestDist = 2500f;
         foreach (var enemies in StageManager.Instance.currentEnemyList)
         {
-            float dist = (stateMachine.Player.transform.position - enemies.transform.position).sqrMagnitude;
+            float dist = (enemies.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
 
             if (dist <= shortestDist)
             {
+                shortestDist = dist;
                 shortest = enemies;
             }
         }

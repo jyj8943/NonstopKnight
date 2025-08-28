@@ -25,9 +25,9 @@ public class UIMain : UIBase
 
     private void UpdatePlayerStatUI()
     {
-        hpBar.fillAmount = GameManager.Instance.Player.StatInfo.currentHp;
-        mpBar.fillAmount = GameManager.Instance.Player.StatInfo.currentMp;
-        expBar.fillAmount = GameManager.Instance.Player.StatInfo.currentExp;
+        hpBar.fillAmount = GameManager.Instance.Player.StatInfo.currentHp / GameManager.Instance.Player.StatInfo.maxHp;
+        mpBar.fillAmount = GameManager.Instance.Player.StatInfo.currentMp / GameManager.Instance.Player.StatInfo.maxMp;
+        expBar.fillAmount = GameManager.Instance.Player.StatInfo.currentExp / GameManager.Instance.Player.StatInfo.maxExp;
 
         levelText.text = GameManager.Instance.Player.StatInfo.currentLevel.ToString();
         goldText.text = GameManager.Instance.Player.StatInfo.currentGold.ToString();
