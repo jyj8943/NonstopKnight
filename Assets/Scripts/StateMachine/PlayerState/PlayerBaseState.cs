@@ -6,7 +6,7 @@ public class PlayerBaseState : IState
 {
     protected PlayerStateMachine stateMachine;
 
-    protected GameObject shortestEnemy;
+    // protected GameObject shortestEnemy;
     
     public PlayerBaseState(PlayerStateMachine stateMachine)
     {
@@ -30,7 +30,7 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-        ChooseClosestEnemy();
+        
     }
 
     public virtual void PhysicsUpdate()
@@ -40,33 +40,23 @@ public class PlayerBaseState : IState
 
     protected bool IsEnemyInChasingRange()
     {
-        // Collider[] hitCollider = Physics.OverlapSphere(stateMachine.Player.transform.position,
-        //     stateMachine.Player.StatInfo.chasingRange);
-        //
-        // if (hitCollider.Length <= 0)
-        // {
-        //     Debug.Log("근처에 적이 없습니다.");
-        // }
-        // else
-        // {
-        //     foreach (var hit in hitCollider)
-        //     {
-        //         if (hit.CompareTag("Enemy"))
-        //         {
-        //             Debug.Log("Enemy 태그를 가진 콜라이더가 존재합니다.");
-        //             return true;
-        //         }
-        //     }
-        // }
-        //
-        // return false;
-
         if (StageManager.Instance.currentEnemyList.Count <= 0)
             return false;
         else
         {
             return true;
         }
+    }
+
+    protected bool IsShortestEnemyInAttackRange()
+    {
+        var dis = (stateMachine.Player.transform.position - stateMachine.targetEnemy.transform.position).sqrMagnitude;
+        if (dis <= (stateMachine.Player.StatInfo.attackRange * stateMachine.Player.StatInfo.attackRange))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     protected void ChooseClosestEnemy()
@@ -85,14 +75,14 @@ public class PlayerBaseState : IState
             }
         }
 
-        shortestEnemy = shortest;
+        stateMachine.targetEnemy = shortest;
     }
 
     protected void MoveToShortestEnemy()
     {
         if (StageManager.Instance.currentEnemyList.Count <= 0) return;
         
-        Vector3 dir = (shortestEnemy.transform.position - stateMachine.Player.transform.position);
+        Vector3 dir = (stateMachine.targetEnemy.transform.position - stateMachine.Player.transform.position);
         
         stateMachine.Player.transform.Translate((dir * stateMachine.Player.StatInfo.walkSpeed) * Time.deltaTime);
     }

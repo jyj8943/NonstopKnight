@@ -14,6 +14,8 @@ public class PlayerIdleState : PlayerBaseState
         base.Enter();
         
         Debug.Log("Idle 상태로 진입했습니다.");
+        
+        ChooseClosestEnemy();
     }
 
     public override void Exit()

@@ -13,6 +13,7 @@ public class PlayerStatInfo : MonoBehaviour
     [SerializeField] public float currentExp;
 
     [SerializeField] public float attackPoint;
+    [SerializeField] public float attackdelay;
     [SerializeField] public float walkSpeed;
     
     [SerializeField] public float currentLevel;
@@ -33,6 +34,7 @@ public class PlayerStatInfo : MonoBehaviour
         currentExp = 0;
 
         attackPoint = playerSO.baseAttackPoint;
+        attackdelay = playerSO.baseAttackDelay;
         walkSpeed = playerSO.baseWalkSpeed;
 
         currentLevel = playerSO.baseLevelValue;

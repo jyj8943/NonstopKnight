@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class BasicEnemyStatInfo : MonoBehaviour
     
     [SerializeField] public float chasingRange;
     [SerializeField] public float attackRange;
+
+    public bool isDie = false;
+    public event Action OnDie;
     
     public void InitPlayerStats(EnemySO basicEnemySO)
     {
@@ -35,5 +39,22 @@ public class BasicEnemyStatInfo : MonoBehaviour
 
         chasingRange = basicEnemySO.chasingRange;
         attackRange = basicEnemySO.attackRange;
+
+        isDie = false;
+    }
+
+    public void GetDamage(float damage)
+    {
+        if (currentHp == 0)
+            return;
+
+        currentHp = Mathf.Max(currentHp - damage, 0);
+        Debug.Log(damage + "만큼의 피해를 주었습니다.");
+
+        if (currentHp == 0)
+        {
+            isDie = true;
+            OnDie?.Invoke();
+        }
     }
 }

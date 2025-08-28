@@ -16,8 +16,9 @@ MonoBehaviour:
   <baseMaxMp>k__BackingField: 100
   <baseMaxExp>k__BackingField: 100
   <baseAttackPoint>k__BackingField: 5
+  <baseAttackDelay>k__BackingField: 2
   <baseWalkSpeed>k__BackingField: 1
   <baseLevelValue>k__BackingField: 1
   <baseGoldValue>k__BackingField: 50
   <chasingRange>k__BackingField: 20
-  <attackRange>k__BackingField: 5
+  <attackRange>k__BackingField: 3

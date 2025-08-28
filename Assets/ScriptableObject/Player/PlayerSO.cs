@@ -11,6 +11,7 @@ public class PlayerSO : ScriptableObject
     [field: SerializeField] public float baseMaxExp { get; private set; }
     
     [field: SerializeField] public float baseAttackPoint { get; private set; }
+    [field: SerializeField] public float baseAttackDelay { get; private set; }
     [field: SerializeField] public float baseWalkSpeed { get; private set; }
     
     [field: SerializeField] public float baseLevelValue { get; private set; }

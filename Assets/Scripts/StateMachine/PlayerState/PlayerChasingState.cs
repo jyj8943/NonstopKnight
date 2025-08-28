@@ -13,6 +13,8 @@ public class PlayerChasingState : PlayerBaseState
         base.Enter();
         
         Debug.Log("Chasing 상태로 진입합니다.");
+        
+        ChooseClosestEnemy();
     }
 
     public override void Exit()
@@ -25,7 +27,12 @@ public class PlayerChasingState : PlayerBaseState
     public override void Update()
     {
         base.Update();
-        
+
         MoveToShortestEnemy();
+        
+        if (IsShortestEnemyInAttackRange())
+        {
+            stateMachine.ChangeState(stateMachine.AttackState);
+        }
     }
 }

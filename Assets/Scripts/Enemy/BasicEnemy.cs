@@ -13,4 +13,15 @@ public class BasicEnemy : MonoBehaviour
         StatInfo = GetComponent<BasicEnemyStatInfo>();
         StatInfo.InitPlayerStats(BasicEnemyData);
     }
+
+    private void Start()
+    {
+        StatInfo.OnDie += OnDie;
+    }
+
+    private void OnDie()
+    {
+        StageManager.Instance.currentEnemyList.Remove(this.gameObject);
+        Destroy(this.gameObject);
+    }
 }

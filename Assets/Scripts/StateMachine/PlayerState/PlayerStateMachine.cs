@@ -6,6 +6,8 @@ public class PlayerStateMachine : StateMachine
 {
     public Player Player { get; }
 
+    public GameObject targetEnemy { get; set; } = null;
+
     public PlayerIdleState IdleState { get; private set; }
     public PlayerChasingState ChasingState { get; private set; }
     public PlayerAttackState AttackState { get; private set; }

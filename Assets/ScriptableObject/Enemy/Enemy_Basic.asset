@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b3aa624a403304e8a5a8e9e495d389, type: 3}
   m_Name: Enemy_Basic
   m_EditorClassIdentifier: 
-  <baseMaxHp>k__BackingField: 5
+  <baseMaxHp>k__BackingField: 10
   <baseMaxMp>k__BackingField: 100
   <baseMaxExp>k__BackingField: 5
   <baseAttackPoint>k__BackingField: 2
   <baseWalkSpeed>k__BackingField: 5
   <baseGoldValue>k__BackingField: 3
   <chasingRange>k__BackingField: 0
-  <attackRange>k__BackingField: 5
+  <attackRange>k__BackingField: 3

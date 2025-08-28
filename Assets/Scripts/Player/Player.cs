@@ -29,20 +29,5 @@ public class Player : MonoBehaviour
     {
         stateMachine.HandleInput();
         stateMachine.Update();
-        
-        // 카메라 이동 확인용 코드 -> FSM으로 이동구현 되면 삭제 예정
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            this.transform.position += Vector3.forward;
-        }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            StageManager.Instance.currentEnemyList.Remove(other.transform.root.gameObject);
-            Destroy(other.transform.root.gameObject);
-        }
     }
 }
