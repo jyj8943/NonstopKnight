@@ -15,4 +15,22 @@ public class PlayerIdleState : PlayerBaseState
         
         Debug.Log("Idle 상태로 진입했습니다.");
     }
+
+    public override void Exit()
+    {
+        base.Exit();
+        
+        Debug.Log("Idle 상태에서 벗어납니다.");
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        
+        if (IsEnemyInChasingRange())
+        {
+            Debug.Log("적이 근처에 있습니다.");
+            stateMachine.ChangeState(stateMachine.ChasingState);
+        }
+    }
 }

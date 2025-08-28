@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,9 @@ public class PlayerStatInfo : MonoBehaviour
     
     [SerializeField] public float currentLevel;
     [SerializeField] public float currentGold;
+
+    [SerializeField] public float chasingRange;
+    [SerializeField] public float attackRange;
     
     public void InitPlayerStats(PlayerSO playerSO)
     {
@@ -33,5 +37,8 @@ public class PlayerStatInfo : MonoBehaviour
 
         currentLevel = playerSO.baseLevelValue;
         currentGold = playerSO.baseGoldValue;
+
+        chasingRange = playerSO.chasingRange;
+        attackRange = playerSO.attackRange;
     }
 }
