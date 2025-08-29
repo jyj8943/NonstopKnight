@@ -85,6 +85,7 @@ public class PlayerBaseState : IState
         
         Vector3 dir = (stateMachine.targetEnemy.transform.position - stateMachine.Player.transform.position);
         
-        stateMachine.Player.transform.Translate((dir * stateMachine.Player.StatInfo.walkSpeed) * Time.deltaTime);
+        stateMachine.Player.transform.Translate((dir * (stateMachine.Player.StatInfo.walkSpeed 
+                                                        + stateMachine.Player.StatInfo.itemPlusWalkSpeed)) * Time.deltaTime);
     }
 }

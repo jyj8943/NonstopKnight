@@ -39,9 +39,10 @@ public class PlayerAttackState : PlayerBaseState
     private void AttackTargetEnemy()
     {
         attackTimer += Time.deltaTime;
-        if (attackTimer >= stateMachine.Player.StatInfo.attackdelay)
+        if (attackTimer >= (stateMachine.Player.StatInfo.attackdelay - stateMachine.Player.StatInfo.itemPlusAttackDelay))
         {
-            stateMachine.targetEnemy.GetComponent<BasicEnemyStatInfo>().GetDamage(stateMachine.Player.StatInfo.attackPoint);
+            stateMachine.targetEnemy.GetComponent<BasicEnemyStatInfo>().GetDamage(stateMachine.Player.StatInfo.attackPoint 
+                + stateMachine.Player.StatInfo.itemPlusAttackPoint);
             attackTimer = 0;
         }
     }

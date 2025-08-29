@@ -14,6 +14,7 @@ public class UIManager : MonoSingleton<UIManager>
     private void Awake()
     {
         CreateUI<UIMain>();
+        CreateUI<UIStore>();
     }
 
     // ================================

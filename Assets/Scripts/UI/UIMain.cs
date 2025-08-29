@@ -17,6 +17,7 @@ public class UIMain : UIBase
     public TextMeshProUGUI stageText;
     public TextMeshProUGUI waveText;
     public Image waveBar;
+    public Image StoreButton;
 
     private void Update()
     {
@@ -35,5 +36,15 @@ public class UIMain : UIBase
         stageText.text = StageManager.Instance.currentStageLevel.ToString() + " 스테이지";
         waveText.text = "남아있는 몬스터 수: " + StageManager.Instance.currentEnemyList.Count;
         waveBar.fillAmount = StageManager.Instance.GetPercentage();
+    }
+
+    public void OnClickStoreButton()
+    {
+        if (!UIManager.Instance.GetUI<UIStore>())
+        {
+            return;
+        }
+        
+        UIManager.Instance.GetUI<UIStore>().storePanel.SetActive(true);
     }
 }

@@ -21,6 +21,13 @@ public class PlayerStatInfo : MonoBehaviour
 
     [SerializeField] public float chasingRange;
     [SerializeField] public float attackRange;
+
+    [SerializeField] public float itemPlusAttackPoint;
+    [SerializeField] public float itemPlusAttackDelay;
+    [SerializeField] public float itemPlusWalkSpeed;
+    
+
+    public Dictionary<ItemSO, int> playerInventory = new Dictionary<ItemSO, int>();
     
     public void InitPlayerStats(PlayerSO playerSO)
     {
@@ -42,5 +49,46 @@ public class PlayerStatInfo : MonoBehaviour
 
         chasingRange = playerSO.chasingRange;
         attackRange = playerSO.attackRange;
+
+        itemPlusAttackPoint = 0;
+        itemPlusAttackDelay = 0;
+        itemPlusWalkSpeed = 0;
+        
+        playerInventory.Clear();
+    }
+
+    public void AddItemIntoInventory(ItemSO item)
+    {
+        currentGold -= item.price;
+
+        if (playerInventory.ContainsKey(item))
+        {
+            playerInventory[item] += 1;
+        }
+        else
+        {
+            playerInventory.Add(item, 1);
+        }
+        
+        UpdatePlayerStat();
+    }
+
+    private void UpdatePlayerStat()
+    {
+        foreach (var inventoryItem in playerInventory)
+        {
+            if (inventoryItem.Key.itemAbility.type == ItemAbilityType.plusAttack)
+            {
+                itemPlusAttackPoint = inventoryItem.Key.itemAbility.value * inventoryItem.Value;
+            }
+            else if (inventoryItem.Key.itemAbility.type == ItemAbilityType.plusAttackDelay)
+            {
+                itemPlusAttackDelay = inventoryItem.Key.itemAbility.value * inventoryItem.Value;
+            }
+            else if (inventoryItem.Key.itemAbility.type == ItemAbilityType.plusWalkSpeed)
+            {
+                itemPlusWalkSpeed = inventoryItem.Key.itemAbility.value * inventoryItem.Value;
+            }
+        }
     }
 }
